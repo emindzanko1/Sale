@@ -5,13 +5,13 @@ export default function NavLinks() {
   return (
     <ul className='nav-links'>
       <li>
-        <Link to='/shinpad'>ADD ITEM</Link>
+        <Link to='/'>HOME</Link>
       </li>
       <li>
-        <Link to='/shinpad'>DELETE ITEM</Link>
+        <Link to='/'>ADD ITEM</Link>
       </li>
       <li>
-        <Link to='/shinpad'>PROBA</Link>
+        <Link to='/logout'>LOGOUT</Link>
       </li>
     </ul>
   );

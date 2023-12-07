@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavLinks from './NavLinks';
 import SideDrawer from './SideDrawer';
+import NavLinks from './NavLinks';
 
 export default function MainNavigation() {
   const [showSidebar, setShowSidebar] = useState(false);
 
   function handleToggle() {
     setShowSidebar(prevState => !prevState);
-    console.log('clicked');
   }
 
   return (

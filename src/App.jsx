@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Shinpad from './components/Pages/Shinpad';
-import HomePage from './components/Pages/Home';
-import RootPage from './components/Pages/Root';
+import RootPage from './pages/Root';
+import HomePage from './pages/Home';
+import Shinpad from './pages/Shinpad';
 
 const router = createBrowserRouter([
   {
