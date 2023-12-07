@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom";
+// NavLinks.js
+import { Link } from 'react-router-dom';
 
 export default function NavLinks() {
   return (
-    <nav className='nav-links'>
-      <Link to='/shinpad'>Link1</Link>
-      <Link to='/shinpad'>Link2</Link>
-      <Link to='/shinpad'>Link3</Link>
-    </nav>
+    <ul className='nav-links'>
+      <li>
+        <Link to='/shinpad'>ADD ITEM</Link>
+      </li>
+      <li>
+        <Link to='/shinpad'>DELETE ITEM</Link>
+      </li>
+      <li>
+        <Link to='/shinpad'>PROBA</Link>
+      </li>
+    </ul>
   );
 }

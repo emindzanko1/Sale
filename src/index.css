@@ -15,55 +15,90 @@ body {
 .header h1 {
   flex: 1;
   text-align: center;
-  font-size: 33px; 
+  font-size: 33px;
 }
 
-.title {
+.main-navigation__header-nav {
+  display: block;
+}
+
+.title,
+.nav-links a {
   color: #fff;
   text-decoration: none;
 }
 
 .nav-links {
+  list-style: none;
   display: flex;
-  margin-right: 100px;
+  margin-right: 60px;
   padding: 10px;
 }
 
 .nav-links a {
-  color: #fff;
   margin-left: 15px;
-  text-decoration: none;
+}
+
+.side-drawer {
+  position: fixed;
+  left: 0;
+  top: 113px;
+  z-index: 100;
+  height: calc(100vh - 60px);
+  width: 100%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  overflow-y: auto;
+}
+
+.main-navigation__drawer-nav {
+  display: flex;
+  /* flex-direction: column; */
+  margin: 20px;
 }
 
 @media screen and (min-width: 768px) {
   .menu-toggle {
-    display: none; 
+    display: none;
   }
 }
 
 @media screen and (max-width: 767px) {
   .nav-links {
-    display: none; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
+    color: #222831;
+    /* display: none; */
+    /* flex-direction: column;
     position: absolute;
-    top: 60px; 
+    top: 60px;
     right: 15px;
     background: #222831;
     padding: 10px;
-    z-index: 1000;
+    z-index: 1000; */
   }
 
   .nav-links a {
     display: block;
+    color: #222831;
     margin: 8px 0;
   }
 
   .menu-toggle {
-    display: block; 
+    display: block;
     color: #fff;
     background: none;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
+    margin-right: 20px;
+  }
+
+  .main-navigation__header-nav {
+    display: none;
+  }
+
+  .main-navigation__drawer-nav {
+    height: 100%;
   }
 }
