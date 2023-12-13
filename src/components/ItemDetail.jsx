@@ -5,7 +5,7 @@ export default function ItemDetail({ item }) {
   return (
     <li className='item'>
       <Link to={`shinpad/${item.id}`} className="item-link">
-        <img src={item.image} alt='kostobran' />
+        <img src={item.image[0]} alt='kostobran' />
         <div>
           <h3>{item.name}</h3>
           <p className='item-price'>{item.price} KM</p>

@@ -150,7 +150,7 @@ body {
   color: black;
 }
 
-.item img {
+.item img, .slider img {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -254,6 +254,53 @@ textarea {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 300px; /* Adjust the maximum width as needed */
+  margin: auto;
+  position: relative;
+}
+
+.left-arrow,
+.right-arrow {
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.active-dot {
+  background-color: #333;
 }
 
 @media screen and (max-width: 1200px) {
