@@ -10,9 +10,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       {
-        path: 'shinpad',
+        path: 'logout',
         element: <Shinpad />,
       },
+      {
+        path: 'shinpad/:id',
+        element: <Shinpad />,
+      }
     ],
   },
 ]);
