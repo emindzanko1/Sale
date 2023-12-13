@@ -2,6 +2,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import RootPage from './pages/Root';
 import HomePage from './pages/Home';
 import Shinpad from './pages/Shinpad';
+import NewItem from './components/NewItem';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
       {
         path: 'shinpad/:id',
         element: <Shinpad />,
-      }
+      },
+      {
+        path: 'items/new',
+        element: <NewItem />,
+      },
     ],
   },
 ]);

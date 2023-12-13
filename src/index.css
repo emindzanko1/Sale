@@ -87,8 +87,9 @@ body {
 }
 
 .item img {
-  max-width: 100%;
-  height: auto;
+  width: 300px;
+  height: 300px; 
+  object-fit: cover; 
   margin-bottom: 15px;
 }
 
@@ -121,6 +122,52 @@ body {
   background-color: #54d054;
   border-color: #54d054;
   color: #1f1a09;
+}
+
+#event-form label {
+  display: block;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: #3c4249;
+  text-transform: uppercase;
+}
+
+#event-form input,
+#event-form textarea {
+  font: inherit;
+  font-size: 1.1rem;
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.button-text {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border: none;
+  color: #3f0c26;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button-text:hover {
+  color: #7c184c;
+}
+
+textarea {
+  resize: none;
 }
 
 @media screen and (max-width: 1200px) {
