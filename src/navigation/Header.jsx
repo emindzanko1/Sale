@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import NavLinks from './NavLinks';
 import { useState } from 'react';
+import SideDrawer from './SideDrawer';
 
 export default function Header() {
   const [showSidebar, setShowSidebar] = useState(false);
