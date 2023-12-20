@@ -6,6 +6,10 @@ export default function AuthenticationPage() {
 }
 
 export async function action({ request }) {
+  const url = new URL(request.url);
+  const path = url.pathname; 
+  console.log(path);
+
   const data = await request.formData();
   const authData = {
     email: data.get('email'),
@@ -13,7 +17,7 @@ export async function action({ request }) {
   };
 
 
-  const response = await fetch('http://localhost:3000/login', {
+  const response = await fetch('http://localhost:3000' + path, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

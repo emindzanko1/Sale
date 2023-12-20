@@ -39,8 +39,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-  console.log("stigao");
-  console.log(req.body);
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     if (err) {
       console.error('Error hashing password:', err);
@@ -68,8 +66,6 @@ app.post('/register', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-
-  console.log("login");
   const email = req.body.email;
   const password = req.body.password;
 
