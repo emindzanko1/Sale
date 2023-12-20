@@ -11,7 +11,7 @@ export default function NavLinks() {
           <Link to='/items/new'>ADD ITEM</Link>
         </li>
         <li>
-          <Link to='/login'>LOGOUT</Link>
+          <Link to='/'>LOGOUT</Link>
         </li>
       </ul>
     </>
