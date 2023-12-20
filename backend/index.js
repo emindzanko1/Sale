@@ -39,6 +39,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
+  console.log("stigao");
+  console.log(req.body);
   bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
     if (err) {
       console.error('Error hashing password:', err);
@@ -64,6 +66,46 @@ app.post('/register', (req, res) => {
     });
   });
 });
+
+app.post('/login', (req, res) => {
+
+  console.log("login");
+  const email = req.body.email;
+  const password = req.body.password;
+
+  const query = `
+    SELECT email, password
+    FROM users
+    WHERE email = $1
+  `;
+  const values = [email];
+
+  db.query(query, values, (error, result) => {
+    if (error) {
+      console.error('Error finding user:', error);
+      return res.status(500).send('Error finding user');
+    }
+
+    if (result.rows.length === 0) {
+      return res.status(404).send('User not found');
+    }
+
+    const user = result.rows[0]; 
+    bcrypt.compare(password, user.password, function (err, result) {
+      if (err) {
+        console.error('Error comparing passwords:', err);
+        return res.status(500).send('Error comparing passwords');
+      }
+
+      if (result) {
+        return res.status(200).send('User authenticated');
+      } else {
+        return res.status(401).send('Invalid credentials');
+      }
+    });
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
