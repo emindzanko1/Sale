@@ -3,6 +3,7 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import Modal from '../UI/Modal';
 import { DUMMY_ITEMS } from '../util/data';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const ImageSlider = () => {
   const [current, setCurrent] = useState(0);
@@ -11,10 +12,10 @@ const ImageSlider = () => {
   const params = useParams();
   const { id } = params;
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const selectedItem = DUMMY_ITEMS.find((item) => item.id === id);
+    const selectedItem = DUMMY_ITEMS.find(item => item.id === id);
 
     if (selectedItem) {
       setItemImages(selectedItem.image);
@@ -24,11 +25,11 @@ const ImageSlider = () => {
   const totalImages = itemImages.length;
 
   const nextSlide = () => {
-    setCurrent((current) => (current === totalImages - 1 ? 0 : current + 1));
+    setCurrent(current => (current === totalImages - 1 ? 0 : current + 1));
   };
 
   const prevSlide = () => {
-    setCurrent((current) => (current === 0 ? totalImages - 1 : current - 1));
+    setCurrent(current => (current === 0 ? totalImages - 1 : current - 1));
   };
 
   if (totalImages === 0) {
@@ -36,22 +37,30 @@ const ImageSlider = () => {
   }
 
   function handleClose() {
-    navigate('/')
+    navigate('/');
   }
 
   return (
-    <Modal onClose={()=>Navigate('/')}>
+    <Modal onClose={() => Navigate('/')}>
       <section className='slider'>
+        <motion.div
+          className='slide-container'
+          key={current}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {itemImages.map((image, index) => (
+            <motion.div className='slide' key={index} custom={index} animate={{ opacity: current === index ? 1 : 0 }}>
+              {current === index && <img src={image} alt='travel image' />}
+            </motion.div>
+          ))}
+        </motion.div>
         <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
         <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
-        {itemImages.map((image, index) => (
-          <div className={index === current ? 'slide active' : 'slide'} key={index}>
-            {index === current && <img src={image} alt='travel image' />}
-          </div>
-        ))}
         <button onClick={handleClose}>Close</button>
         <div className='dots'>
-          {Array.from({ length: totalImages }).map((_, index) => (
+          {itemImages.map((_, index) => (
             <span
               key={index}
               className={index === current ? 'dot active-dot' : 'dot'}

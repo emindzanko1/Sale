@@ -2,15 +2,30 @@ import { Link } from 'react-router-dom';
 import Button from '../UI/Button';
 import { motion } from 'framer-motion';
 
-export default function ItemDetail({ item }) {
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: index => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.1 * index,
+    },
+  }),
+};
+
+export default function ItemDetail({ item, index }) {
   return (
     <motion.li
-      variants={{
-        hidden: { opacity: 0, scale: 0.5 },
-        visible: { opacity: 1, scale: 1 },
+      variants={fadeInAnimationVariants}
+      initial='initial'
+      whileInView='animate'
+      viewport={{
+        once: true,
       }}
-      exit={{ opacity: 1, scale: 1}}
-      transition={{ type: 'spring'}}
+      custom={index}
       className='item'
     >
       <Link to={`shinpad/${item.id}`} className='item-link'>
