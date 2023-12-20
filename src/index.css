@@ -4,7 +4,8 @@ main {
   min-height: 100vh;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -14,8 +15,6 @@ body {
   max-width: 100%;
   position: relative;
 }
-
-
 
 .header {
   width: 100%;
@@ -150,7 +149,8 @@ body {
   color: black;
 }
 
-.item img, .slider img {
+.item img,
+.slider img {
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -261,7 +261,7 @@ textarea {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 300px; 
+  max-width: 300px;
   margin: auto;
   position: relative;
 }
@@ -345,12 +345,15 @@ textarea {
   background-color: #54d054;
 }
 
+.content {
+  text-align: center;
+}
+
 @media screen and (max-width: 1200px) {
   .items {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }
-
 
 @media screen and (min-width: 768px) {
   .menu-toggle {
@@ -367,15 +370,15 @@ textarea {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
   }
-  
+
   .item {
     padding: 15px;
   }
-  
+
   .item h3 {
     font-size: 1rem;
   }
-  
+
   .item img {
     margin-bottom: 10px;
   }

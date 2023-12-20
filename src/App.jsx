@@ -5,12 +5,14 @@ import Shinpad from './pages/Shinpad';
 import NewItem from './components/NewItem';
 import ImageSlider from './components/ImageSlider';
 import { SliderData } from './util/sliderData';
-import Login from './components/Login';
+import Authentication, {action as authAction} from './pages/Authentication';
+import ErrorPage from './pages/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootPage />,
+    errorElement: <ErrorPage/>,
     children: [
       { index: true, element: <HomePage /> },
       {
@@ -26,8 +28,9 @@ const router = createBrowserRouter([
         element: <NewItem />,
       },
       {
-        path: 'login',
-        element: <Login />,
+        path: 'register',
+        element: <Authentication />,
+        action: authAction 
       },
     ],
   },
@@ -39,10 +42,3 @@ function App() {
 
 export default App;
 
-// import ImageSlider from './components/ImageSlider';
-
-// function App() {
-//   return <ImageSlider slides={SliderData} />;
-// }
-
-// export default App;

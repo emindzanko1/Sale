@@ -16,7 +16,7 @@ app.use('/images', express.static('images'));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
@@ -32,6 +32,7 @@ const db = new pg.Client({
 db.connect();
 
 app.get('/', (req, res) => {
+  console.log(req.token);
   res.send('Hello');
 });
 
