@@ -5,6 +5,7 @@ import Shinpad from './pages/Shinpad';
 import NewItem from './components/NewItem';
 import ImageSlider from './components/ImageSlider';
 import { SliderData } from './util/sliderData';
+import Login from './components/Login';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: 'items/new',
         element: <NewItem />,
+      },
+      {
+        path: 'login',
+        element: <Login />,
       },
     ],
   },

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import Modal from '../UI/Modal';
 import { DUMMY_ITEMS } from '../util/data';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 const ImageSlider = () => {
   const [current, setCurrent] = useState(0);
@@ -10,6 +10,8 @@ const ImageSlider = () => {
 
   const params = useParams();
   const { id } = params;
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const selectedItem = DUMMY_ITEMS.find((item) => item.id === id);
@@ -33,8 +35,12 @@ const ImageSlider = () => {
     return null;
   }
 
+  function handleClose() {
+    navigate('/')
+  }
+
   return (
-    <Modal>
+    <Modal onClose={()=>Navigate('/')}>
       <section className='slider'>
         <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
         <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
@@ -43,6 +49,7 @@ const ImageSlider = () => {
             {index === current && <img src={image} alt='travel image' />}
           </div>
         ))}
+        <button onClick={handleClose}>Close</button>
         <div className='dots'>
           {Array.from({ length: totalImages }).map((_, index) => (
             <span
